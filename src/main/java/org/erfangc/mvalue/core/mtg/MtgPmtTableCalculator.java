@@ -1,7 +1,7 @@
-package org.erfangc.mvalue.core;
+package org.erfangc.mvalue.core.mtg;
 
 import static java.lang.Math.pow;
-import static org.erfangc.mvalue.core.MtgPmtTable.*;
+import static org.erfangc.mvalue.core.mtg.MtgPmtTable.*;
 /**
  * {@link MtgPmtTableCalculator}
  * Created by echen on 5/23/16.

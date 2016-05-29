@@ -1,14 +1,14 @@
 package org.erfangc.spring.models;
 
-import org.erfangc.mvalue.core.IncomeStatementAssumptions;
-import org.erfangc.mvalue.core.MtgAssumptions;
+import org.erfangc.mvalue.core.income.PropertyAssumptions;
+import org.erfangc.mvalue.core.mtg.MtgAssumptions;
 
 /**
  * Created by erfangchen on 5/28/16.
  */
 public class Assumptions {
     private MtgAssumptions mtgAssumptions;
-    private IncomeStatementAssumptions incomeStatementAssumptions;
+    private PropertyAssumptions propertyAssumptions;
 
     public MtgAssumptions getMtgAssumptions() {
         return mtgAssumptions;
@@ -18,20 +18,20 @@ public class Assumptions {
         this.mtgAssumptions = mtgAssumptions;
     }
 
-    public IncomeStatementAssumptions getIncomeStatementAssumptions() {
-        return incomeStatementAssumptions;
+    public PropertyAssumptions getPropertyAssumptions() {
+        return propertyAssumptions;
     }
 
-    public void setIncomeStatementAssumptions(IncomeStatementAssumptions incomeStatementAssumptions) {
-        this.incomeStatementAssumptions = incomeStatementAssumptions;
+    public void setPropertyAssumptions(PropertyAssumptions propertyAssumptions) {
+        this.propertyAssumptions = propertyAssumptions;
     }
 
     public Assumptions() {
     }
 
-    public Assumptions(MtgAssumptions mtgAssumptions, IncomeStatementAssumptions incomeStatementAssumptions) {
+    public Assumptions(MtgAssumptions mtgAssumptions, PropertyAssumptions propertyAssumptions) {
 
         this.mtgAssumptions = mtgAssumptions;
-        this.incomeStatementAssumptions = incomeStatementAssumptions;
+        this.propertyAssumptions = propertyAssumptions;
     }
 }

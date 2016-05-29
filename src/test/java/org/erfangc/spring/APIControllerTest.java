@@ -3,8 +3,8 @@ package org.erfangc.spring;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import org.erfangc.MvalueAppApplication;
-import org.erfangc.mvalue.core.IncomeStatementAssumptions;
-import org.erfangc.mvalue.core.MtgAssumptions;
+import org.erfangc.mvalue.core.income.PropertyAssumptions;
+import org.erfangc.mvalue.core.mtg.MtgAssumptions;
 import org.erfangc.spring.models.Assumptions;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,7 +52,7 @@ public class APIControllerTest {
                 new Assumptions(
                         new MtgAssumptions()
                                 .homePrice(500000).ltv(0.8).rate(0.04625).nper(360),
-                        new IncomeStatementAssumptions()
+                        new PropertyAssumptions()
                                 .rent(3600)
                                 .investmentHorizonInYrs(11)
                                 .commonCharges(384.00)

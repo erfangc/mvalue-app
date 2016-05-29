@@ -1,10 +1,10 @@
-package org.erfangc.mvalue.core;
+package org.erfangc.mvalue.core.income;
 
 /**
- * {@link IncomeStatementAssumptions}
+ * {@link PropertyAssumptions}
  * Created by echen on 5/23/16.
  */
-public class IncomeStatementAssumptions {
+public class PropertyAssumptions {
 
     private int investmentHorizonInYrs;
     private double cumulativeAppreciation;
@@ -107,37 +107,37 @@ public class IncomeStatementAssumptions {
         return this.propertyTax;
     }
 
-    public IncomeStatementAssumptions investmentHorizonInYrs(final int investmentHorizonInYrs) {
+    public PropertyAssumptions investmentHorizonInYrs(final int investmentHorizonInYrs) {
         this.investmentHorizonInYrs = investmentHorizonInYrs;
         return this;
     }
 
-    public IncomeStatementAssumptions cumulativeAppreciation(final double cumulativeAppreciation) {
+    public PropertyAssumptions cumulativeAppreciation(final double cumulativeAppreciation) {
         this.cumulativeAppreciation = cumulativeAppreciation;
         return this;
     }
 
-    public IncomeStatementAssumptions commonCharges(final double commonCharges) {
+    public PropertyAssumptions commonCharges(final double commonCharges) {
         this.commonCharges = commonCharges;
         return this;
     }
 
-    public IncomeStatementAssumptions buyingClosingCost(final double buyingClosingCost) {
+    public PropertyAssumptions buyingClosingCost(final double buyingClosingCost) {
         this.buyingClosingCost = buyingClosingCost;
         return this;
     }
 
-    public IncomeStatementAssumptions sellingClosingCost(final double sellingClosingCost) {
+    public PropertyAssumptions sellingClosingCost(final double sellingClosingCost) {
         this.sellingClosingCost = sellingClosingCost;
         return this;
     }
 
-    public IncomeStatementAssumptions insurance(final double insurance) {
+    public PropertyAssumptions insurance(final double insurance) {
         this.insurance = insurance;
         return this;
     }
 
-    public IncomeStatementAssumptions propertyTax(final double propertyTax) {
+    public PropertyAssumptions propertyTax(final double propertyTax) {
         this.propertyTax = propertyTax;
         return this;
     }
@@ -147,7 +147,7 @@ public class IncomeStatementAssumptions {
         return this.rent;
     }
 
-    public IncomeStatementAssumptions rent(final double rent) {
+    public PropertyAssumptions rent(final double rent) {
         this.rent = rent;
         return this;
     }

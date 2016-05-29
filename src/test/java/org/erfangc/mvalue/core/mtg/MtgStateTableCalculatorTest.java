@@ -1,4 +1,4 @@
-package org.erfangc.mvalue.core;
+package org.erfangc.mvalue.core.mtg;
 
 import org.junit.Test;
 
