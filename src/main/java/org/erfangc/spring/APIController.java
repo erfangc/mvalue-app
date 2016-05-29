@@ -35,11 +35,11 @@ public class APIController {
     }
 
     @RequestMapping(value = "analysis", method = RequestMethod.POST)
-    public AnalysisResult incomeStatementTimeSeries(@RequestBody Assumptions assumptions) {
+    public AnalysisResult analysis(@RequestBody Assumptions assumptions) {
         MtgPmtTable pmtTable = mtgPmtTableCalculator.calculateMtgPmt(assumptions.getMtgAssumptions());
         PropertyAssumptions propertyAssumptions = assumptions.getPropertyAssumptions();
         List<IncomeStatementTimeSeries.IncomeStatement> incomeStatements = incomeStatementCalculator.calculateIncomeStatements(propertyAssumptions, pmtTable).toList();
         CashflowStatementTimeSeries cashflowStatementTimeSeries = cashflowCaculator.calculateCashflowStatements(propertyAssumptions, pmtTable);
-        return new AnalysisResult(incomeStatements, cashflowStatementTimeSeries.toList(), cashflowStatementTimeSeries.getIRR());
+        return new AnalysisResult(incomeStatements, cashflowStatementTimeSeries.toList(), pmtTable.toList(), cashflowStatementTimeSeries.getIRR());
     }
 }

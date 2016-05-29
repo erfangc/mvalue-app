@@ -1,7 +1,7 @@
 package org.erfangc.mvalue.core.mtg;
 
 import static java.lang.Math.pow;
-import static org.erfangc.mvalue.core.mtg.MtgPmtTable.*;
+
 /**
  * {@link MtgPmtTableCalculator}
  * Created by echen on 5/23/16.
@@ -24,9 +24,9 @@ public class MtgPmtTableCalculator {
         for (int j = 1; j <= n; j++) {
             tbl.add(currentMtgState);
             // derive the next state, then set the current stage to next state
-            double nextInterest = currentMtgState.endBalance * i;
+            double nextInterest = currentMtgState.getEndBalance() * i;
             double nextPrincipal = pmt - nextInterest;
-            currentMtgState = new MtgPmtTable.MtgState(j+1, currentMtgState.endBalance, currentMtgState.endBalance - nextPrincipal, nextInterest, nextPrincipal);
+            currentMtgState = new MtgState(j+1, currentMtgState.getEndBalance(), currentMtgState.getEndBalance() - nextPrincipal, nextInterest, nextPrincipal);
         }
         return tbl;
     }

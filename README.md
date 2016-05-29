@@ -25,7 +25,7 @@ I believe housing prices must be supported by rent, and rent level is supported 
 However, given a certain GDP growth figure, the proportion of those growth will not be evenly distributed geographically, thus contributing to uneven appreciation/depreciation in housing prices.
 
 Given this framework, the next modeling effort should be focused on predicting income growth by geography.
-  
+    
 Other factors that significantly impact property valuation such as 
 
 # How to run your own instance?

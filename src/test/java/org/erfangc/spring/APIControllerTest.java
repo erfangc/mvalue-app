@@ -64,7 +64,7 @@ public class APIControllerTest {
                 )
         );
         ResultActions action = mockMvc.perform(post("/api/analysis").content(requestBody).contentType(MediaType.APPLICATION_JSON_UTF8));
-        action.andExpect(content().json(FileUtils.readFileToString(new ClassPathResource("spring/incomeStatement.expected.json").getFile(), StandardCharsets.UTF_8)));
+        action.andExpect(content().json(FileUtils.readFileToString(new ClassPathResource("spring/analysis.expected.json").getFile(), StandardCharsets.UTF_8)));
     }
 
 }
