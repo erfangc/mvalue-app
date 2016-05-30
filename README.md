@@ -1,14 +1,19 @@
-**(Under Development, Not Stable!)**
+**Warning:** This project is under heavy development and not stable!
+
+[![codecov](https://codecov.io/gh/erfangc/mvalue-app/branch/master/graph/badge.svg)](https://codecov.io/gh/erfangc/mvalue-app)
+[![Build Status](https://travis-ci.org/erfangc/mvalue-app.svg?branch=master)](https://travis-ci.org/erfangc/mvalue-app)
+
+See a Demo [Here](https://radiant-journey-76639.herokuapp.com/) *(maybe slow or unresponsive, using free-tier hardware)*
 
 # mvalue-core
 
-Mortgage Investment IRR and CF calculator App
+Mortgage Investment IRR and CF calculator Web App to Assist with Home Buying / Investment
 
 # Why?
 
 Investing in properties shouldn't be purely speculative. I believe real estate assets derive their value from Free Cashflow just like every other investment.
 
-Even though many intangible and unpredictable factors affect the valuation and realized return of real estate investments, it shouldn't prohibit us from running prospective deals through a financial model.
+Even though many intangible and unpredictable factors affect the valuation and realized return of real estate investments, it shouldn't prohibit us from using pro-forma models as a starting point for gauging prospective deals.
 
 # How?
 
@@ -31,28 +36,21 @@ Other factors that significantly impact property valuation such as
 # How to run your own instance?
 
 ```bash
-mvnw install run
+# if you have maven installed
+mvn package && java -jar target/mvalue-app-${VERSION}.jar
+
+# if you do not have maven installed
+./mvnw package && java -jar target/mvalue-app-${VERSION}.jar
+
+# then visit localhost:8080
 ```
 
-Then visit `localhost:8080`
+# Technology Stack
 
-# REST API
-
-``
-/POST /api/analysis
-Content-Type: application/json
-Content: @see Assumptions.java
-Returns: @see AnalysisResult.java
-```
-
-# Technology
-
-**Server / Computation** Java / Spring Boot
-
-**Front End** React.js with Redux
-
-**UX** Material Design
-
-**Deployment Platform** heroku
-
-**Backend** Postgrel SQL
+| Stack |                 Tech   |
+|--------------------|--------------------|
+| Server/Computation | [Java / Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) |
+| Front-End          | [React](https://facebook.github.io/react/) with [Redux](http://redux.js.org/index.html) |
+| UX                 | [Material Design](https://www.google.com/design/spec/material-design/introduction.html)    |
+| Deployment         | Heroku             |
+| Backend            | Postgrel           |
