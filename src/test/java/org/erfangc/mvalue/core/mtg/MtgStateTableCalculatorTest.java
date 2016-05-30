@@ -18,6 +18,24 @@ public class MtgStateTableCalculatorTest {
         assertEquals(0.0, tbl.getEndingBalance(360), 0.01);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetInterestExpenseOutOfBoundsAccess() {
+        MtgPmtTable tbl = getMtgPmtTable();
+        tbl.getInterestExpense(0, 361);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetInterestExpenseOutOfBoundsAccess1() {
+        MtgPmtTable tbl = getMtgPmtTable();
+        tbl.getInterestExpense(-1, 350);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetEndingBalanceOutOfBoundsAccess1() {
+        MtgPmtTable tbl = getMtgPmtTable();
+        tbl.getEndingBalance(361);
+    }
+
     private MtgPmtTable getMtgPmtTable() {
         MtgPmtTableCalculator obj = new MtgPmtTableCalculator();
         MtgAssumptions mtgAssumptions = new MtgAssumptions().nper(360).rate(.04625).ltv(0.8).homePrice(500000.00);

@@ -32,29 +32,6 @@ public class MtgState {
     private double interestExpense;
     private double principal;
 
-    public MtgState() {
-    }
-
-    public void setPeriod(int period) {
-        this.period = period;
-    }
-
-    public void setBegBalance(double begBalance) {
-        this.begBalance = begBalance;
-    }
-
-    public void setEndBalance(double endBalance) {
-        this.endBalance = endBalance;
-    }
-
-    public void setInterestExpense(double interestExpense) {
-        this.interestExpense = interestExpense;
-    }
-
-    public void setPrincipal(double principal) {
-        this.principal = principal;
-    }
-
     public MtgState(int period, double begBalance, double endBalance, double interestExpense, double principal) {
         this.period = period;
         this.begBalance = begBalance;

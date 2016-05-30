@@ -1,7 +1,5 @@
 package org.erfangc.mvalue.core.mtg;
 
-import static java.text.MessageFormat.format;
-
 /**
  * Created by echen on 5/23/16.
  */
@@ -10,11 +8,6 @@ public class MtgAssumptions {
     private double rate;
     private double homePrice;
     private double ltv;
-
-    @Override
-    public String toString() {
-        return format("# of Payment Period = {0}\nInterest Rate (Annualized) = {1}\nHome Price + {2}\bLoan-to-Value{3}", nper, rate, homePrice, ltv);
-    }
 
     public MtgAssumptions nper(int nper) {
         this.nper = nper;

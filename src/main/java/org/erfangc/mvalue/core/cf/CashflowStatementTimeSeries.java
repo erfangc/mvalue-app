@@ -16,7 +16,7 @@ public class CashflowStatementTimeSeries {
     private Map<Integer, CashflowStatement> cfTbl;
 
     public CashflowStatementTimeSeries() {
-        this.cfTbl = cfTbl = new TreeMap<>();
+        this.cfTbl = new TreeMap<>();
     }
 
     public CashflowStatement getForPeriod(int i) {
@@ -25,10 +25,6 @@ public class CashflowStatementTimeSeries {
 
     public void add(CashflowStatement stmt) {
         this.cfTbl.put(stmt.getPeriod(), stmt);
-    }
-
-    public Map<Integer, CashflowStatement> toMap() {
-        return cfTbl;
     }
 
     public List<CashflowStatement> toList() {

@@ -1,0 +1,3 @@
+[submodule "mvalue-ui"]
+	path = mvalue-ui
+	url = git@github.com:erfangc/mvalue-ui.git

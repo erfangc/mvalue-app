@@ -18,6 +18,11 @@ public class IRRCalcTest {
     }
 
     @Test
+    public void irr2() throws Exception {
+        assertEquals(Double.NaN, IRRCalc.irr(new double[]{100, 100, 200}), 0.001);
+    }
+
+    @Test
     public void irr1() throws Exception {
         assertEquals(0.38367, IRRCalc.irr(new double[]{-100,50,50,100}, 1d), 0.001);
     }
