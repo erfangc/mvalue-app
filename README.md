@@ -1,12 +1,11 @@
-# mvalue-core
+# mvalue-app
+
+[![codecov](https://codecov.io/gh/erfangc/mvalue-app/branch/master/graph/badge.svg)](https://codecov.io/gh/erfangc/mvalue-app) [![Build Status](https://travis-ci.org/erfangc/mvalue-app.svg?branch=master)](https://travis-ci.org/erfangc/mvalue-app)
 
 Mortgage Investment IRR and CF calculator Web App to Assist with Home Buying / Investment
-See a Demo [Here](https://radiant-journey-76639.herokuapp.com/) *(maybe slow or unresponsive, using free-tier hardware)*
+See a Demo [Here](https://radiant-journey-76639.herokuapp.com/) *(link could be slow or unresponsive, as it is currently hosted on free-tier hardware)*
 
-**Warning:** This project is under heavy development and not stable!
-
-[![codecov](https://codecov.io/gh/erfangc/mvalue-app/branch/master/graph/badge.svg)](https://codecov.io/gh/erfangc/mvalue-app)
-[![Build Status](https://travis-ci.org/erfangc/mvalue-app.svg?branch=master)](https://travis-ci.org/erfangc/mvalue-app)
+**Warning:** This project is under heavy development and not is stable!
 
 # Why?
 

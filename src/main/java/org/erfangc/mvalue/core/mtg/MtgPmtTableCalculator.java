@@ -15,7 +15,7 @@ public class MtgPmtTableCalculator {
         double annuityFactor = i + (i / (pow(1+i, n) - 1));
         double amtBorrowed = assumptions.getHomePrice() * assumptions.getLtv();
         double pmt = amtBorrowed * annuityFactor;
-        MtgPmtTable tbl = new MtgPmtTable(n, pmt, assumptions);
+        MtgPmtTable tbl = new MtgPmtTable(pmt, assumptions);
 
         // keep track of current mtg state, update it throughout the loop
         double intExp = amtBorrowed * i;

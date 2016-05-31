@@ -20,6 +20,17 @@ public class ValuationContext {
 
     private MtgPmtTable mtgPmtTable;
 
+    /**
+     * compute the leveraged return in dollar for sale of the house
+     * @param ctx {@link ValuationContext}
+     * @return gains from selling
+     */
+    public static double calculateGainsFromSale(ValuationContext ctx) {
+        double homePrice = ctx.getMtgPmtTable().getAssumptions().getHomePrice();
+        double appreciation = ctx.getAssumptions().getCumulativeAppreciation();
+        return homePrice * appreciation;
+    }
+
     public static double calculateProceedsFromSale(int period, ValuationContext ctx) {
         double remainingMtgBalance = ctx.getMtgPmtTable().getEndingBalance(period * 12);
         double sellPrice = ctx.getMtgPmtTable().getAssumptions().getHomePrice() * (1 + ctx.getAssumptions().cumulativeAppreciation());

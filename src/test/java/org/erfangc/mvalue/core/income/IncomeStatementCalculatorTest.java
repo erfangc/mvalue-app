@@ -21,7 +21,7 @@ public class IncomeStatementCalculatorTest {
         IncomeStatementTimeSeries ts = obj.calculateIncomeStatements(propertyAssumptions, pmtTable);
         assertEquals(-20803.33, ts.getForPeriod(1).getNetIncome(), 0.01);
         assertEquals(9494.84, ts.getForPeriod(2).getNetIncome(), 0.01);
-        assertEquals(259282.55, ts.getForPeriod(11).getNetIncome(), 0.01);
+        assertEquals(70899.0989691654, ts.getForPeriod(11).getNetIncome(), 0.01);
 
     }
 }

@@ -123,14 +123,14 @@
     {
       "period": 11,
       "rent": 43200.0,
-      "proceedsFromSale": 288383.44993016287,
+      "proceedsFromSale": 100000.0,
       "interestExpense": 14664.901030834604,
       "tax": 3828.0,
       "commonCharges": 4608.0,
       "closingCost": 42000.0,
-      "totalRevenue": 331583.44993016287,
+      "totalRevenue": 143200.0,
       "totalExponses": 65100.901030834604,
-      "netIncome": 266482.5488993283
+      "netIncome": 78099.0989691654
     }
   ],
   "cashflowStatements": [

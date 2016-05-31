@@ -21,7 +21,7 @@ public class MtgPmtTable {
         return assumptions;
     }
 
-    public MtgPmtTable(int nper, double pmt, MtgAssumptions assumptions) {
+    public MtgPmtTable(double pmt, MtgAssumptions assumptions) {
         pmtTbl = new TreeMap<>();
         this.pmt = pmt;
         this.assumptions = assumptions;
@@ -38,16 +38,16 @@ public class MtgPmtTable {
 
     public double getInterestExpense(int periodStart, int periodEnd) {
         double intExp = 0.0;
-        if (periodStart < 1 || periodEnd > pmtTbl.size())
-            throw new IllegalArgumentException(format("period less than 1 or greater than {}", pmtTbl.size()));
+        if (periodStart < 1 || periodEnd > pmtTbl.size() - 1)
+            return 0; // return no interest if requesting out of bounds access
         for (int i = periodStart; i <= periodEnd; i++)
             intExp += pmtTbl.get(i).getInterestExpense();
         return intExp;
     }
 
     public double getEndingBalance(int period) {
-        if (period > pmtTbl.size())
-            throw new IllegalArgumentException(format("period cannot be greater than {}", pmtTbl.size()));
+        if (period > pmtTbl.size() - 1)
+            return 0; // return no interest if requesting out of bounds access
         return pmtTbl.get(period).getEndBalance();
     }
 

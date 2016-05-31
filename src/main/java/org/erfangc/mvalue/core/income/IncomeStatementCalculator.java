@@ -3,7 +3,7 @@ package org.erfangc.mvalue.core.income;
 import org.erfangc.mvalue.core.ValuationContext;
 import org.erfangc.mvalue.core.mtg.MtgPmtTable;
 
-import static org.erfangc.mvalue.core.ValuationContext.calculateProceedsFromSale;
+import static org.erfangc.mvalue.core.ValuationContext.calculateGainsFromSale;
 
 /**
  * {@link IncomeStatementCalculator}
@@ -37,7 +37,7 @@ public class IncomeStatementCalculator {
         return new IncomeStatementTimeSeries.IncomeStatement()
                 .period(period)
                 .rent(ctx.getAssumptions().rent() * 12)
-                .proceedsFromSale(ctx.getAssumptions().investmentHorizonInYrs() == period ? calculateProceedsFromSale(period, ctx) : 0)
+                .proceedsFromSale(ctx.getAssumptions().investmentHorizonInYrs() == period ? calculateGainsFromSale(ctx) : 0)
                 .interestExpense(ctx.getMtgPmtTable().getInterestExpense((period - 1) * 12 + 1, period * 12))
                 .tax(ctx.getAssumptions().propertyTax() * 12)
                 .commonCharges(ctx.getAssumptions().commonCharges() * 12)
