@@ -8,14 +8,14 @@ import org.erfangc.mvalue.core.mtg.MtgPmtTable;
  * Created by erfangchen on 5/29/16.
  */
 public class ValuationContext {
-    private PropertyAssumptions assumptions;
+    private PropertyAssumptions propertyAssumptions;
 
     public MtgPmtTable getMtgPmtTable() {
         return mtgPmtTable;
     }
 
-    public PropertyAssumptions getAssumptions() {
-        return assumptions;
+    public PropertyAssumptions getPropertyAssumptions() {
+        return propertyAssumptions;
     }
 
     private MtgPmtTable mtgPmtTable;
@@ -27,18 +27,18 @@ public class ValuationContext {
      */
     public static double calculateGainsFromSale(ValuationContext ctx) {
         double homePrice = ctx.getMtgPmtTable().getAssumptions().getHomePrice();
-        double appreciation = ctx.getAssumptions().getCumulativeAppreciation();
+        double appreciation = ctx.getPropertyAssumptions().getCumulativeAppreciation();
         return homePrice * appreciation;
     }
 
     public static double calculateProceedsFromSale(int period, ValuationContext ctx) {
         double remainingMtgBalance = ctx.getMtgPmtTable().getEndingBalance(period * 12);
-        double sellPrice = ctx.getMtgPmtTable().getAssumptions().getHomePrice() * (1 + ctx.getAssumptions().cumulativeAppreciation());
+        double sellPrice = ctx.getMtgPmtTable().getAssumptions().getHomePrice() * (1 + ctx.getPropertyAssumptions().cumulativeAppreciation());
         return sellPrice - remainingMtgBalance;
     }
 
-    public ValuationContext(PropertyAssumptions assumptions, MtgPmtTable mtgPmtTable) {
-        this.assumptions = assumptions;
+    public ValuationContext(PropertyAssumptions propertyAssumptions, MtgPmtTable mtgPmtTable) {
+        this.propertyAssumptions = propertyAssumptions;
         this.mtgPmtTable = mtgPmtTable;
     }
 }

@@ -2,9 +2,9 @@ package org.erfangc.spring;
 
 import org.erfangc.mvalue.core.cf.CashflowCaculator;
 import org.erfangc.mvalue.core.cf.CashflowStatementTimeSeries;
+import org.erfangc.mvalue.core.income.IncomeStatement;
 import org.erfangc.mvalue.core.income.PropertyAssumptions;
 import org.erfangc.mvalue.core.income.IncomeStatementCalculator;
-import org.erfangc.mvalue.core.income.IncomeStatementTimeSeries;
 import org.erfangc.mvalue.core.mtg.MtgPmtTable;
 import org.erfangc.mvalue.core.mtg.MtgPmtTableCalculator;
 import org.erfangc.spring.models.AnalysisResult;
@@ -38,7 +38,7 @@ public class APIController {
     public AnalysisResult analysis(@RequestBody Assumptions assumptions) {
         MtgPmtTable pmtTable = mtgPmtTableCalculator.calculateMtgPmt(assumptions.getMtgAssumptions());
         PropertyAssumptions propertyAssumptions = assumptions.getPropertyAssumptions();
-        List<IncomeStatementTimeSeries.IncomeStatement> incomeStatements = incomeStatementCalculator.calculateIncomeStatements(propertyAssumptions, pmtTable).toList();
+        List<IncomeStatement> incomeStatements = incomeStatementCalculator.calculateIncomeStatements(propertyAssumptions, pmtTable).toList();
         CashflowStatementTimeSeries cashflowStatementTimeSeries = cashflowCaculator.calculateCashflowStatements(propertyAssumptions, pmtTable);
         return new AnalysisResult(incomeStatements, cashflowStatementTimeSeries.toList(), pmtTable.toList(), cashflowStatementTimeSeries.getIRR());
     }

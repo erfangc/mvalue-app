@@ -1,10 +1,12 @@
 package org.erfangc.mvalue.core.cf;
 
+import org.erfangc.mvalue.core.FinancialStatement;
+
 /**
  * {@link CashflowStatement}
  * Created by erfangchen on 5/29/16.
  */
-public class CashflowStatement {
+public class CashflowStatement extends FinancialStatement {
 
     private int period;
 
@@ -12,31 +14,13 @@ public class CashflowStatement {
         return period;
     }
 
-    private double rent;
     private double proceedsFromSale;
-    private double tax;
-    private double commonCharges;
     private double mortgagePmt;
     private double downPayment;
     private double closingCost;
 
-    public CashflowStatement rent(final double rent) {
-        this.rent = rent;
-        return this;
-    }
-
     public CashflowStatement proceedsFromSale(final double proceedsFromSale) {
         this.proceedsFromSale = proceedsFromSale;
-        return this;
-    }
-
-    public CashflowStatement tax(final double tax) {
-        this.tax = tax;
-        return this;
-    }
-
-    public CashflowStatement commonCharges(final double commonCharges) {
-        this.commonCharges = commonCharges;
         return this;
     }
 
@@ -59,7 +43,7 @@ public class CashflowStatement {
     public double getNetCF() {
         return getRent() + getProceedsFromSale() -
                 (
-                    getTax() +
+                    getPropertyTax() +
                     getClosingCost() +
                     getCommonCharges() +
                     getDownPayment() +
@@ -67,20 +51,8 @@ public class CashflowStatement {
                 );
     }
 
-    public double getRent() {
-        return rent;
-    }
-
     public double getProceedsFromSale() {
         return proceedsFromSale;
-    }
-
-    public double getTax() {
-        return tax;
-    }
-
-    public double getCommonCharges() {
-        return commonCharges;
     }
 
     public double getMortgagePmt() {

@@ -15,14 +15,14 @@ public class IncomeStatementCalculator {
 
         int investHorizon = assumptions.investmentHorizonInYrs();
 
-        IncomeStatementTimeSeries.IncomeStatement currentIncomeStatement = new IncomeStatementTimeSeries.IncomeStatement()
-                .period(1)
-                .rent(assumptions.rent() * 12)
-                .proceedsFromSale(0)
+        IncomeStatement currentIncomeStatement = new IncomeStatement();
+        currentIncomeStatement.proceedsFromSale(0)
                 .interestExpense(pmtTable.getInterestExpense(1, 12))
-                .tax(assumptions.propertyTax() * 12)
-                .commonCharges(assumptions.commonCharges() * 12)
-                .closingCost(assumptions.buyingClosingCost());
+                .closingCost(assumptions.buyingClosingCost())
+                .setPeriod(1)
+                .setRent(assumptions.rent() * 12)
+                .setPropertyTax(assumptions.propertyTax() * 12)
+                .setCommonCharges(assumptions.commonCharges() * 12);
 
         IncomeStatementTimeSeries ts = new IncomeStatementTimeSeries();
         ValuationContext ctx = new ValuationContext(assumptions, pmtTable);
@@ -33,15 +33,19 @@ public class IncomeStatementCalculator {
         return ts;
     }
 
-    private IncomeStatementTimeSeries.IncomeStatement nextIncomeStatement(int period, IncomeStatementTimeSeries.IncomeStatement curr, ValuationContext ctx) {
-        return new IncomeStatementTimeSeries.IncomeStatement()
-                .period(period)
-                .rent(ctx.getAssumptions().rent() * 12)
-                .proceedsFromSale(ctx.getAssumptions().investmentHorizonInYrs() == period ? calculateGainsFromSale(ctx) : 0)
+    private IncomeStatement nextIncomeStatement(int period, IncomeStatement curr, ValuationContext ctx) {
+        // rental growth is a function of appreciation I assume
+        double rent = curr.getRent() * (1 + ctx.getPropertyAssumptions().getRentalIncrease());
+        IncomeStatement incomeStatement = new IncomeStatement();
+        incomeStatement
+                .proceedsFromSale(ctx.getPropertyAssumptions().investmentHorizonInYrs() == period ? calculateGainsFromSale(ctx) : 0)
                 .interestExpense(ctx.getMtgPmtTable().getInterestExpense((period - 1) * 12 + 1, period * 12))
-                .tax(ctx.getAssumptions().propertyTax() * 12)
-                .commonCharges(ctx.getAssumptions().commonCharges() * 12)
-                .closingCost(ctx.getAssumptions().investmentHorizonInYrs() == period ? ctx.getAssumptions().sellingClosingCost() : 0);
+                .closingCost(ctx.getPropertyAssumptions().investmentHorizonInYrs() == period ? ctx.getPropertyAssumptions().sellingClosingCost() : 0)
+                .setPropertyTax(ctx.getPropertyAssumptions().propertyTax() * 12)
+                .setCommonCharges(ctx.getPropertyAssumptions().commonCharges() * 12)
+                .setPeriod(period)
+                .setRent(rent);
+        return incomeStatement;
     }
 
 }

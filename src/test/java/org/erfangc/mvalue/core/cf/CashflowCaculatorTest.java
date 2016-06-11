@@ -27,7 +27,7 @@ public class CashflowCaculatorTest {
         CashflowStatement stmt = ts.getForPeriod(1);
         assertEquals(36000, stmt.getRent(), 0.01);
         assertEquals(0, stmt.getProceedsFromSale(), 0.01);
-        assertEquals(3828.00, stmt.getTax(), 0.01);
+        assertEquals(3828.00, stmt.getPropertyTax(), 0.01);
         assertEquals(4608.00, stmt.getCommonCharges(), 0.01);
         assertEquals(24678.70, stmt.getMortgagePmt(), 0.01);
         assertEquals(100000.00, stmt.getDownPayment(), 0.01);

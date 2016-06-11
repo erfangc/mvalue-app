@@ -1,7 +1,7 @@
 package org.erfangc.spring.models;
 
 import org.erfangc.mvalue.core.cf.CashflowStatement;
-import org.erfangc.mvalue.core.income.IncomeStatementTimeSeries;
+import org.erfangc.mvalue.core.income.IncomeStatement;
 import org.erfangc.mvalue.core.mtg.MtgState;
 
 import java.util.List;
@@ -12,12 +12,12 @@ import java.util.List;
  */
 public class AnalysisResult {
 
-    private List<IncomeStatementTimeSeries.IncomeStatement> incomeStatements;
+    private List<IncomeStatement> incomeStatements;
     private List<CashflowStatement> cashflowStatements;
     private List<MtgState> mtgPmtTable;
     private double irr;
 
-    public AnalysisResult(List<IncomeStatementTimeSeries.IncomeStatement> incomeStatements, List<CashflowStatement> cashflowStatements, List<MtgState> mtgPmtTable, double irr) {
+    public AnalysisResult(List<IncomeStatement> incomeStatements, List<CashflowStatement> cashflowStatements, List<MtgState> mtgPmtTable, double irr) {
         this.incomeStatements = incomeStatements;
         this.cashflowStatements = cashflowStatements;
         this.mtgPmtTable = mtgPmtTable;
@@ -28,7 +28,7 @@ public class AnalysisResult {
         return mtgPmtTable;
     }
 
-    public List<IncomeStatementTimeSeries.IncomeStatement> getIncomeStatements() {
+    public List<IncomeStatement> getIncomeStatements() {
         return incomeStatements;
     }
 

@@ -8,12 +8,22 @@ public class PropertyAssumptions {
 
     private int investmentHorizonInYrs;
     private double cumulativeAppreciation;
+    private double rentalIncrease;
     private double commonCharges;
     private double buyingClosingCost;
     private double sellingClosingCost;
     private double insurance;
     private double rent;
     private double propertyTax;
+
+    public double getRentalIncrease() {
+        return rentalIncrease;
+    }
+
+    public PropertyAssumptions setRentalIncrease(final double rentalIncrease) {
+        this.rentalIncrease = rentalIncrease;
+        return this;
+    }
 
     public double getRent() {
         return rent;
